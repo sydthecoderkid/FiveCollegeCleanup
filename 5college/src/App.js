@@ -8,6 +8,7 @@ const LandingPage = () => {
 
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   const locations = ["Amherst", "UMass", "Hampshire", "Smith", "Holyoke"]; 
+
   const handleDayChange = (e) => {
     setSelectedDay(e.target.value);
   };
@@ -60,6 +61,14 @@ const LandingPage = () => {
           </div>
         ))}
       </section>
+      <footer className="landing-footer">
+        <button
+          className="students-button"
+          onClick={() => window.location.href='http://10.2.10.32:3001/students'}
+        >
+          View Students
+        </button>
+      </footer>
     </div>
   );
 };
