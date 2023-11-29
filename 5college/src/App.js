@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -7,9 +8,19 @@ const LandingPage = () => {
   const [meetingResults, setMeetingResults] = useState([]);
 
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  const locations = ["Amherst", "UMass", "Hampshire", "Smith", "Holyoke"]; 
+  const locations = ["Amherst", "UMass", "Hampshire", "Smith", "Holyoke"];
   const handleDayChange = (e) => {
     setSelectedDay(e.target.value);
+  };
+
+  const makeRequest = (e) => {
+    axios.get('http://10.2.10.32:3001/students')
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   const handleLocationChange = (e) => {
@@ -34,6 +45,7 @@ const LandingPage = () => {
       <header className="landing-header">
         <h1>Five College World Language Center</h1>
       </header>
+      <button onClick={makeRequest}>TestButton</button>
       <section className="search-section">
         <form className="search-form" onSubmit={handleSearchSubmit}>
           <select className="search-dropdown" value={selectedDay} onChange={handleDayChange}>
