@@ -72,6 +72,14 @@ const LandingPage = () => {
           </div>
         ))}
       </section>
+      <footer className="landing-footer">
+        <button
+          className="students-button"
+          onClick={() => window.location.href = 'http://10.2.10.32:3001/students'}
+        >
+          View Students
+        </button>
+      </footer>
     </div>
   );
 };
