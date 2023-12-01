@@ -1,72 +1,87 @@
-.landing-page {
-    text-align: center;
-    padding: 50px;
-    background: #f5f5f5; /* Light grey background */
-    height: 100vh; /* Full height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .landing-header {
-    margin-bottom: 20px;
-  }
-  
-  .search-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; /* Adds space between input and button */
-  }
-  
-  .search-input {
-    padding: 10px;
-    width: 300px; /* Fixed width for the input */
-    border: 2px solid #ddd; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Larger font size for better readability */
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Transition for a smooth color change */
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-  }
-  .search-dropdown {
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: white;
-    cursor: pointer;
-    margin-right: 10px; /* Adds some space between the dropdown and the input */
-  }
-  .results-section {
-    margin-top: 20px;
-  }
-  
-  .meeting-result {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  
-    
+.navbar {
+  background-color: rgb(55, 4, 72);
+ }
+ 
+ 
+ .navbar-brand, .nav-link {
+  margin: 5%;
+  color: #f4f2f2 !important;
+ }
+ 
+ 
+ .navbar-brand:hover, .nav-link:hover {
+  color: #f8f9fa !important;
+ }
+ 
+ 
+ .landing-header {
+  text-align: center;
+  margin: 20px 0;
+ }
+ 
+ 
+ .search-section, .results-section {
+  margin: 20px;
+ }
+ 
+ 
+ .search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+ }
+ 
+ 
+ .search-dropdown {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+ }
+ 
+ 
+ .search-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+ }
+ 
+ 
+ .search-button:hover {
+  background-color: #0056b3;
+ }
+ 
+ 
+ .meeting-result {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+ }
+ 
+ 
+ .landing-footer {
+  text-align: center;
+  margin-top: 20px;
+ }
+ 
+ 
+ .students-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+ }
+ 
+ 
+ .students-button:hover {
+  background-color: #218838;
+ }
+ 
+ 
+ 
