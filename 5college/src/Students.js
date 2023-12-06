@@ -32,7 +32,6 @@ export default function Students() {
 			.then((data) => setTableData(data))
 
 	}, [])
-	console.log(tableData)
 
 	return (
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Students from './Students';
+import Instructors from './Instructors';
+import Meetings from './Meetings'
+import Courses from './Courses'
 import LandingPage from './LandingPage';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -25,6 +28,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/students' element={<Students />} />
+        <Route path='/instructors' element={<Instructors />} />
+        <Route path='/courses' element={<Courses />} />
+        <Route path='/meetings' element={<Meetings />} />
       </Routes>
     </Router>
   );
