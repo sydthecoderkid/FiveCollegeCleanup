@@ -26,8 +26,9 @@ const columns = [
 export default function Students() {
 
 	const [tableData, setTableData] = useState([])
+	var name = 'doug'
 	useEffect(() => {
-		fetch("http://10.2.10.32:3001/students")
+		fetch(`http://10.2.10.32:3001/students?name=${name}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data))
 
