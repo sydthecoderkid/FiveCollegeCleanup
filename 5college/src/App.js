@@ -4,9 +4,6 @@ import Students from './Students';
 import Instructors from './Instructors';
 import Courses from './Courses';
 import Meetings from './Meetings';
-import Instructors from './Instructors';
-import Meetings from './Meetings'
-import Courses from './Courses'
 import LandingPage from './LandingPage';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
