@@ -1,135 +1,95 @@
 .navbar {
 
+
   background-color: rgb(55, 4, 72);
- 
   height: 50px;
- 
   text-align: center ;
- 
   padding-top : 20px ;
- 
  }
- 
  .navbar-brand, .nav-link {
- 
   margin: 5%;
- 
   color: #f8f7f7 !important;
- 
   font-size: 20px ;
- 
-  
- 
- }
- 
- .nav-link:hover{
- 
-  color: #f8f9fa !important;
- 
   }
- 
- .navbar-brand:hover{
- 
+ .nav-link:hover{
   color: #f8f9fa !important;
- 
+  }
+ .navbar-brand:hover{
+  color: #f8f9fa !important;
  }
- 
  .landing-header {
- 
   text-align: center;
- 
   margin: 20px 0;
- 
  }
- 
  .search-section, .results-section {
- 
   margin: 20px;
- 
  }
- 
  .search-form {
- 
   display: flex;
- 
   justify-content: center;
- 
   gap: 10px;
- 
   margin-bottom: 20px;
- 
  }
- 
  .search-dropdown {
- 
   padding: 5px 10px;
- 
   border-radius: 5px;
- 
   border: 1px solid #ddd;
- 
  }
- 
  .search-button {
- 
   background-color: #007bff;
- 
   color: white;
- 
   border: none;
- 
   padding: 5px 15px;
- 
   border-radius: 5px;
- 
   cursor: pointer;
- 
  }
- 
  .search-button:hover {
- 
   background-color: #0056b3;
- 
  }
- 
  .meeting-result {
- 
   border: 1px solid #ddd;
- 
   padding: 10px;
- 
   margin-bottom: 10px;
- 
   border-radius: 5px;
- 
  }
- 
  .landing-footer {
- 
   text-align: center;
- 
   margin-top: 20px;
- 
  }
- 
  .students-button {
- 
   background-color: #28a745;
- 
   color: white;
- 
   border: none;
- 
   padding: 10px 20px;
- 
   border-radius: 5px;
- 
   cursor: pointer;
- 
  }
- 
  .students-button:hover {
- 
   background-color: #218838;
- 
  }
+ 
+ 
+ .centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+ }
+ 
+ 
+ .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+ }
+ 
+ 
+ .text-container {
+  /* text-align: center;  */
+  margin: 0 auto;
+  max-width: 90%;
+ }
+ 
+ 
+ 
