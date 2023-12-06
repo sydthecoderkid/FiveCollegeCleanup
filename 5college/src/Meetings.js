@@ -10,9 +10,6 @@ const columns = [
 	{ field: 'campus', headerName: 'campus', width: 130 },
 	{ field: 'day', headerName: 'day', width: 130 },
 	{ field: 'meeting_type', headerName: 'meeting_type', width: 200 },
-
-
-
 ];
 
 
