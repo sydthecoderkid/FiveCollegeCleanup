@@ -11,6 +11,8 @@ const columns = [
 	{ field: 'meeting_type', headerName: 'meeting_type', width: 200 },
 ];
 
+
+
 export default function Meetings() {
 	const [sem, setSem] = useState('');
 	const [year, setYear] = useState('');
@@ -18,16 +20,21 @@ export default function Meetings() {
 	const [day, setDay] = useState('');
 
 	const [tableData, setTableData] = useState([]);
-	useEffect(() => {
-		fetch('http://10.2.10.32:3001/meetings')
+
+	const generate = () => {
+		fetch(`http://10.2.10.32:3001/meetings?semester=${sem}&year=${year}&campus=${campus}&day=${day}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
+	};
+	useEffect(() => {
+		generate()
 	}, []);
 	console.log(tableData);
 	var counter = 0;
 	return (
 		<div style={{ height: 600, width: '100%' }}>
 			<h1>Meetings</h1>
+			<button onClick={generate}>Test Query</button>
 			<FormControl sx={{ m: 2, minWidth: 180 }}>
 				<InputLabel id='semester-label'>Semester</InputLabel>
 				<Select
