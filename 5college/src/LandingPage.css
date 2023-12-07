@@ -1,6 +1,4 @@
 .navbar {
-
-
   background-color: rgb(55, 4, 72);
   height: 50px;
   text-align: center ;
@@ -67,29 +65,37 @@
  .students-button:hover {
   background-color: #218838;
  }
- 
- 
  .centered-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
  }
- 
- 
  .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
  }
- 
- 
  .text-container {
   /* text-align: center;  */
+  color: rgb(63, 36, 63);
   margin: 0 auto;
   max-width: 90%;
  }
+ .description{
+  margin-top: 30px; 
+  font-size: 40 ;
+  max-width: 90%;
+  margin: 0 auto;
+  color: rgb(63, 36, 63);
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold ;
+ }
  
  
+ h1{
+  color: rgb(63, 36, 63);
+ }
  
