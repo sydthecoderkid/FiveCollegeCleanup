@@ -8,7 +8,7 @@ const columns = [
 	{ field: 'location', headerName: 'location', width: 130 },
 	{ field: 'campus', headerName: 'campus', width: 130 },
 	{ field: 'day', headerName: 'day', width: 130 },
-	{ field: 'meeting_type', headerName: 'meeting_type', width: 200 },
+	{ field: 'academic_year', headerName: 'academic_year', width: 200 },
 ];
 
 
@@ -22,10 +22,24 @@ export default function Meetings() {
 	const [tableData, setTableData] = useState([]);
 
 	const generate = () => {
-		fetch(`http://10.2.10.32:3001/meetings?semester=${sem}&year=${year}&campus=${campus}&day=${day}`)
+
+		var semToPass = sem
+		var yearToPass = year
+		var campusToPass = campus
+		var dayToPass = day
+
+
+		if (semToPass.length <= 2 || semToPass == 'Any') semToPass = undefined
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
+		if (campusToPass.length <= 2 || campusToPass == 'Any') campusToPass = undefined
+		if (dayToPass.length <= 2 || dayToPass === 'Any') dayToPass = undefined
+
+		console.log(yearToPass)
+		fetch(`http://10.2.10.32:3001/meetings?semester=${semToPass}&academic_year=${yearToPass}&campus=${campusToPass}&day=${dayToPass}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
 	};
+
 	useEffect(() => {
 		generate()
 	}, []);
@@ -47,6 +61,7 @@ export default function Meetings() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'Spring'}>Spring</MenuItem>
 					<MenuItem value={'Fall'}>Fall</MenuItem>
 				</Select>
@@ -64,6 +79,7 @@ export default function Meetings() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={2019}>2019</MenuItem>
 					<MenuItem value={2020}>2020</MenuItem>
 					<MenuItem value={2021}>2021</MenuItem>
@@ -82,6 +98,7 @@ export default function Meetings() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'Amherst'}>Amherst</MenuItem>
 					<MenuItem value={'Umass'}>Umass</MenuItem>
 					<MenuItem value={'Smith'}>Smith</MenuItem>
@@ -102,6 +119,7 @@ export default function Meetings() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'Monday'}>Monday</MenuItem>
 					<MenuItem value={'Tuesday'}>Tuesday</MenuItem>
 					<MenuItem value={'Wednesday'}>Wednesday</MenuItem>
