@@ -9,6 +9,7 @@ const columns = [
 	{ field: 'campus', headerName: 'campus', width: 130 },
 	{ field: 'day', headerName: 'day', width: 130 },
 	{ field: 'academic_year', headerName: 'academic_year', width: 200 },
+	{ field: 'semester', semester: 'semester', width: 200 }
 ];
 
 
@@ -100,7 +101,7 @@ export default function Meetings() {
 				>
 					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'Amherst'}>Amherst</MenuItem>
-					<MenuItem value={'Umass'}>Umass</MenuItem>
+					<MenuItem value={'UMass'}>Umass</MenuItem>
 					<MenuItem value={'Smith'}>Smith</MenuItem>
 					<MenuItem value={'Mount Holyoke'}>Mount Holyoke</MenuItem>
 					<MenuItem value={'Hampshire'}>Hampshire</MenuItem>
