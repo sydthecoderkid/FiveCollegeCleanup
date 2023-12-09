@@ -1,11 +1,12 @@
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { create } from '@mui/material/styles/createTransitions';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { FormControl, InputLabel, Button, Select, MenuItem } from '@mui/material';
 import React, { useEffect, useState } from "react";
+import './TablesPages.css';
 
 const columns = [
-	{ field: 'email ', headerName: 'email', width: 200 },
+	{ field: 'email', headerName: 'email', width: 200 },
 	{ field: 'first_name', headerName: 'First name', width: 130 },
 	{ field: 'last_name', headerName: 'Last name', width: 130 },
 	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
@@ -43,108 +44,114 @@ export default function Instructors() {
     return (
         <div style={{ height: 600, width: '100%' }}>
             <h1>Instructors</h1>
-            {/* Add dropdowns here */}
-            <FormControl sx={{ m: 2, minWidth: 180 }}>
-				<InputLabel id='role-label'>Role</InputLabel>
-				<Select
-					labelId='role-label'
-					id='role'
-					value={role}
-					label='Role'
-					onChange={(e) => {
-						setRole(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value={'Any'}>Any</MenuItem>
-					<MenuItem value={'Conversation Partner'}>Conversation Partner</MenuItem>
-					<MenuItem value={'Mentor'}>Mentor</MenuItem>
-				</Select>
-			</FormControl>
+			<div className="queryContainer">
+                <div className="dropdownMenu">
+					<FormControl sx={{ m: 2, minWidth: 180 }}>
+						<InputLabel id='role-label'>Role</InputLabel>
+						<Select
+							labelId='role-label'
+							id='role'
+							value={role}
+							label='Role'
+							onChange={(e) => {
+								setRole(e.target.value);
+								console.log(e.target.value);
+							}}
+						>
+							<MenuItem value={'Any'}>Any</MenuItem>
+							<MenuItem value={'Conversation Partner'}>Conversation Partner</MenuItem>
+							<MenuItem value={'Mentor'}>Mentor</MenuItem>
+						</Select>
+					</FormControl>
 
-			<FormControl sx={{ m: 2, minWidth: 180 }}>
-				<InputLabel id='email-label'>Email</InputLabel>
-				<Select
-					labelId='email-label'
-					id='email'
-					value={email}
-					label='Email'
-					onChange={(e) => {
-						setEmail(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value={'Any'}>Any</MenuItem>
-					<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
-					<MenuItem value={'kjones@fivecolleges.edu'}>kjones@fivecolleges.edu</MenuItem>
-					<MenuItem value={'mlane@fivecolleges.edu'}>mlane@fivecolleges.edu</MenuItem>
-					<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
-					<MenuItem value={'hj@fivecolleges.edu'}>hj@fivecolleges.edu</MenuItem>
-					<MenuItem value={'akim@fivecolleges.edu'}>akim@fivecolleges.edu</MenuItem>
-					<MenuItem value={'jmoreno@fivecolleges.edu'}>jmoreno@fivecolleges.edu</MenuItem>
-					<MenuItem value={'mbrown@fivecolleges.edu'}>mbrown@fivecolleges.edu</MenuItem>
-				</Select>
-			</FormControl>
+					<FormControl sx={{ m: 2, minWidth: 180 }}>
+						<InputLabel id='email-label'>Email</InputLabel>
+						<Select
+							labelId='email-label'
+							id='email'
+							value={email}
+							label='Email'
+							onChange={(e) => {
+								setEmail(e.target.value);
+								console.log(e.target.value);
+							}}
+						>
+							<MenuItem value={'Any'}>Any</MenuItem>
+							<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
+							<MenuItem value={'kjones@fivecolleges.edu'}>kjones@fivecolleges.edu</MenuItem>
+							<MenuItem value={'mlane@fivecolleges.edu'}>mlane@fivecolleges.edu</MenuItem>
+							<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
+							<MenuItem value={'hj@fivecolleges.edu'}>hj@fivecolleges.edu</MenuItem>
+							<MenuItem value={'akim@fivecolleges.edu'}>akim@fivecolleges.edu</MenuItem>
+							<MenuItem value={'jmoreno@fivecolleges.edu'}>jmoreno@fivecolleges.edu</MenuItem>
+							<MenuItem value={'mbrown@fivecolleges.edu'}>mbrown@fivecolleges.edu</MenuItem>
+						</Select>
+					</FormControl>
 
-			<FormControl sx={{ m: 2, minWidth: 180 }}>
-				<InputLabel id='year-label'>Year</InputLabel>
-				<Select
-					labelId='year-label'
-					id='year'
-					value={year}
-					label='Year'
-					onChange={(e) => {
-						setYear(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value={'Any'}>Any</MenuItem>
-					<MenuItem value={2019}>2019</MenuItem>
-					<MenuItem value={2020}>2020</MenuItem>
-					<MenuItem value={2021}>2021</MenuItem>
-					<MenuItem value={2021}>2022</MenuItem>
-					<MenuItem value={2021}>2023</MenuItem>
-				</Select>
-			</FormControl>
+					<FormControl sx={{ m: 2, minWidth: 180 }}>
+						<InputLabel id='year-label'>Year</InputLabel>
+						<Select
+							labelId='year-label'
+							id='year'
+							value={year}
+							label='Year'
+							onChange={(e) => {
+								setYear(e.target.value);
+								console.log(e.target.value);
+							}}
+						>
+							<MenuItem value={'Any'}>Any</MenuItem>
+							<MenuItem value={2019}>2019</MenuItem>
+							<MenuItem value={2020}>2020</MenuItem>
+							<MenuItem value={2021}>2021</MenuItem>
+							<MenuItem value={2021}>2022</MenuItem>
+							<MenuItem value={2021}>2023</MenuItem>
+						</Select>
+					</FormControl>
 
-			<FormControl sx={{ m: 2, minWidth: 180 }}>
-				<InputLabel id='semester-label'>Semester</InputLabel>
-				<Select
-					labelId='semester-label'
-					id='semester'
-					value={semester}
-					label='Semester'
-					onChange={(e) => {
-						setSemester(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value={'Any'}>Any</MenuItem>
-					<MenuItem value={'Spring'}>Spring</MenuItem>
-					<MenuItem value={'Fall'}>Fall</MenuItem>
-				</Select>
-			</FormControl>
+					<FormControl sx={{ m: 2, minWidth: 180 }}>
+						<InputLabel id='semester-label'>Semester</InputLabel>
+						<Select
+							labelId='semester-label'
+							id='semester'
+							value={semester}
+							label='Semester'
+							onChange={(e) => {
+								setSemester(e.target.value);
+								console.log(e.target.value);
+							}}
+						>
+							<MenuItem value={'Any'}>Any</MenuItem>
+							<MenuItem value={'Spring'}>Spring</MenuItem>
+							<MenuItem value={'Fall'}>Fall</MenuItem>
+						</Select>
+					</FormControl>
 
-			<FormControl sx={{ m: 2, minWidth: 180 }}>
-				<InputLabel id='courseNum-label'>Course Number</InputLabel>
-				<Select
-					labelId='courseNum-label'
-					id='courseNum'
-					value={courseNum}
-					label='Course Number'
-					onChange={(e) => {
-						setCourseNum(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value={'Any'}>Any</MenuItem>
-					<MenuItem value={'FORLANGC 111HM'}>FORLANGC 111HM</MenuItem>
-					<MenuItem value={'FORLANGC 111LL'}>FORLANGC 111LL</MenuItem>
-					<MenuItem value={'FORLANGC 111LM'}>FORLANGC 111LM</MenuItem>
-					<MenuItem value={'FORLANGC 111ND'}>FORLANGC 111ND</MenuItem>
-					<MenuItem value={'FORLANGC 111VN'}>FORLANGC 111VN</MenuItem>
-				</Select>
-			</FormControl>
+					<FormControl sx={{ m: 2, minWidth: 180 }}>
+						<InputLabel id='courseNum-label'>Course Number</InputLabel>
+						<Select
+							labelId='courseNum-label'
+							id='courseNum'
+							value={courseNum}
+							label='Course Number'
+							onChange={(e) => {
+								setCourseNum(e.target.value);
+								console.log(e.target.value);
+							}}
+						>
+							<MenuItem value={'Any'}>Any</MenuItem>
+							<MenuItem value={'FORLANGC 111HM'}>FORLANGC 111HM</MenuItem>
+							<MenuItem value={'FORLANGC 111LL'}>FORLANGC 111LL</MenuItem>
+							<MenuItem value={'FORLANGC 111LM'}>FORLANGC 111LM</MenuItem>
+							<MenuItem value={'FORLANGC 111ND'}>FORLANGC 111ND</MenuItem>
+							<MenuItem value={'FORLANGC 111VN'}>FORLANGC 111VN</MenuItem>
+						</Select>
+					</FormControl>
+				</div>
+				{/* <div className="queryButton">
+					<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>Query the Database</Button>
+				</div> */}
+			</div>
 
             <DataGrid
                 rows={tableData}
