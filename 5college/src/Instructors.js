@@ -38,14 +38,31 @@ export default function Instructors() {
 	const [semester, setSemester] = useState('');
 	const [courseNum, setCourseNum] = useState('');
 
-	useEffect(() => {
-		// Update this URL to include query parameters based on the state
-		fetch(
-			`http://10.2.10.32:3001/instructors?role=${role}&email=${email}&year=${year}&semester=${semester}&course_num=${courseNum}`
-		)
+	const generate = () => {
+
+		var roleToPass = role
+		var emailToPass = email
+		var yearToPass = year
+		var semToPass = semester
+		var courseNumToPass = courseNum
+
+
+		if (roleToPass.length <= 2 || roleToPass == 'Any') roleToPass = undefined
+		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
+		if (courseNumToPass.length <= 2 || courseNumToPass === 'Any') courseNumToPass = undefined
+		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined
+
+		fetch(`http://10.2.10.32:3001/instructors?role=${roleToPass}&email=${emailToPass}&year=${yearToPass}&semester=${semToPass}&course_num=${courseNumToPass}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
-	}, [role, email, year, semester, courseNum]); // Add dependencies here
+	};
+	useEffect(() => {
+		generate()
+	}, []); // Add dependencies here
+
+	var counter = 0;
+	console.log(tableData)
 
 	const resetFields = () => {
 		setRole('');
@@ -81,7 +98,7 @@ export default function Instructors() {
                 >
                      </Input>
                 </FormControl>
-				
+
 				<FormControl sx={{ m: 2, minWidth: 180 }}>
 					<InputLabel id='role-label'>Role</InputLabel>
 					<Select
@@ -169,9 +186,9 @@ export default function Instructors() {
 					justifyContent: 'center',
 				}}
 			>
-				{/* <Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
 					Query the Database
-				</Button> */}
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>
