@@ -21,6 +21,9 @@ const columns = [
 	{ field: 'paperwork_status', headerName: 'paperworkStatus', width: 130 },
 	{ field: 'notes', headerName: 'notes', width: 130 },
 	{ field: 'hiring_history', headerName: 'hiringHist', width: 130 },
+	{ field: 'course_num', headerName: 'course_num', width: 130 },
+	{ field: 'semester', headerName: 'semester', width: 130 },
+	{ field: 'academic_year', headerName: 'academic_year', width: 130 },
 ];
 
 
@@ -62,7 +65,6 @@ export default function Instructors() {
 			<h1>Instructors</h1>
 			<div>
 				<div>
-					<button onClick={generate}>Test Query</button>
 					{/* Add dropdowns here */}
 					<FormControl sx={{ m: 2, minWidth: 180 }}>
 						<InputLabel id='role-label'>Role</InputLabel>
