@@ -20,7 +20,6 @@ const columns = [
 	{ field: 'phone', headerName: 'phone', width: 100 },
 	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
 	{ field: 'pronouns', headerName: 'pronouns', width: 100 },
-	{},
 ];
 
 export default function Students() {
@@ -28,12 +27,30 @@ export default function Students() {
 	const [enrollmentStatus, setEnrollmentStatus] = useState('');
 	const [registrationStatus, setRegistrationstatus] = useState('');
 	const [tableData, setTableData] = useState([]);
-	var name = 'doug';
 
-	useEffect(() => {
-		fetch(`http://10.2.10.32:3001/students?name=${name}`)
+	console.log(tableData)
+
+	const generate = () => {
+
+		var regStatus = registrationStatus
+		var emailToPass = email
+		var enrollStatus = enrollmentStatus
+
+
+
+		if (regStatus.length <= 2 || regStatus == 'Any') regStatus = undefined
+		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
+		if (enrollStatus.length <= 2 || enrollStatus == 'Any') enrollStatus = undefined
+
+		fetch(`http://10.2.10.32:3001/students?email=${emailToPass}&enrollStatus=${enrollStatus}&regStatus=${regStatus}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
+	};
+
+
+	useEffect(() => {
+		generate()
+
 	}, []);
 
 	const resetFields = () => {
@@ -44,6 +61,7 @@ export default function Students() {
 	return (
 		<div style={{ height: 600, width: '100%' }}>
 			<h1>Students</h1>
+			<button onClick={generate}>Test query</button>
 			<div
 				style={{
 					display: 'flex',
@@ -52,19 +70,19 @@ export default function Students() {
 				}}
 			>
 				<FormControl sx={{ m: 2, minWidth: 180 }}>
-                    <InputLabel id='email-label'>Email</InputLabel>
-                    <Input 
-                    	labelId='email-label'
-                        id='email'
-                        value={email}
-                        label='Email'
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                            console.log(e.target.value);
-                        }}
-                >
-                     </Input>
-                </FormControl>
+					<InputLabel id='email-label'>Email</InputLabel>
+					<Input
+						labelId='email-label'
+						id='email'
+						value={email}
+						label='Email'
+						onChange={(e) => {
+							setEmail(e.target.value);
+							console.log(e.target.value);
+						}}
+					>
+					</Input>
+				</FormControl>
 
 				<FormControl
 					sx={{ m: 2, minWidth: 180 }}
