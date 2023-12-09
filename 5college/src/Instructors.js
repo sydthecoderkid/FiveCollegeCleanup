@@ -1,5 +1,4 @@
 import { DataGrid } from '@mui/x-data-grid';
-<<<<<<< HEAD
 import {
 	FormControl,
 	InputLabel,
@@ -8,13 +7,6 @@ import {
 	Button,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-=======
-import axios from 'axios';
-import { create } from '@mui/material/styles/createTransitions';
-import { FormControl, InputLabel, Button, Select, MenuItem } from '@mui/material';
-import React, { useEffect, useState } from "react";
-import './TablesPages.css';
->>>>>>> main
 
 const columns = [
 	{ field: 'email', headerName: 'email', width: 200 },
@@ -45,7 +37,6 @@ export default function Instructors() {
 	const [semester, setSemester] = useState('');
 	const [courseNum, setCourseNum] = useState('');
 
-<<<<<<< HEAD
 	useEffect(() => {
 		// Update this URL to include query parameters based on the state
 		fetch(
@@ -205,153 +196,11 @@ export default function Instructors() {
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>
-=======
-	const generate = () => {
-
-		var roleToPass = role
-		var emailToPass = email
-		var yearToPass = year
-		var semToPass = semester
-		var courseNumToPass = courseNum
-
-
-		if (roleToPass.length <= 2 || roleToPass == 'Any') roleToPass = undefined
-		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
-		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
-		if (courseNumToPass.length <= 2 || courseNumToPass === 'Any') courseNumToPass = undefined
-		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined
-
-		fetch(`http://10.2.10.32:3001/instructors?role=${roleToPass}&email=${emailToPass}&year=${yearToPass}&semester=${semToPass}&course_num=${courseNumToPass}`)
-			.then((data) => data.json())
-			.then((data) => setTableData(data));
-	};
-	useEffect(() => {
-		generate()
-	}, []); // Add dependencies here
-
-	var counter = 0;
-	console.log(tableData)
-	return (
-		<div style={{ height: 600, width: '100%' }}>
-			<h1>Instructors</h1>
-			<div>
-				<div>
-					{/* Add dropdowns here */}
-					<FormControl sx={{ m: 2, minWidth: 180 }}>
-						<InputLabel id='role-label'>Role</InputLabel>
-						<Select
-							labelId='role-label'
-							id='role'
-							value={role}
-							label='Role'
-							onChange={(e) => {
-								setRole(e.target.value);
-								console.log(e.target.value);
-							}}
-						>
-							<MenuItem value={'Any'}>Any</MenuItem>
-							<MenuItem value={'Conversation Partner'}>Conversation Partner</MenuItem>
-							<MenuItem value={'Mentor'}>Mentor</MenuItem>
-						</Select>
-					</FormControl>
-
-					<FormControl sx={{ m: 2, minWidth: 180 }}>
-						<InputLabel id='email-label'>Email</InputLabel>
-						<Select
-							labelId='email-label'
-							id='email'
-							value={email}
-							label='Email'
-							onChange={(e) => {
-								setEmail(e.target.value);
-								console.log(e.target.value);
-							}}
-						>
-							<MenuItem value={'Any'}>Any</MenuItem>
-							<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
-							<MenuItem value={'kjones@fivecolleges.edu'}>kjones@fivecolleges.edu</MenuItem>
-							<MenuItem value={'mlane@fivecolleges.edu'}>mlane@fivecolleges.edu</MenuItem>
-							<MenuItem value={'abanner@fivecolleges.edu'}>abanner@fivecolleges.edu</MenuItem>
-							<MenuItem value={'hj@fivecolleges.edu'}>hj@fivecolleges.edu</MenuItem>
-							<MenuItem value={'akim@fivecolleges.edu'}>akim@fivecolleges.edu</MenuItem>
-							<MenuItem value={'jmoreno@fivecolleges.edu'}>jmoreno@fivecolleges.edu</MenuItem>
-							<MenuItem value={'mbrown@fivecolleges.edu'}>mbrown@fivecolleges.edu</MenuItem>
-						</Select>
-					</FormControl>
-
-					<FormControl sx={{ m: 2, minWidth: 180 }}>
-						<InputLabel id='year-label'>Year</InputLabel>
-						<Select
-							labelId='year-label'
-							id='year'
-							value={year}
-							label='Year'
-							onChange={(e) => {
-								setYear(e.target.value);
-								console.log(e.target.value);
-							}}
-						>
-							<MenuItem value={'Any'}>Any</MenuItem>
-							<MenuItem value={2019}>2019</MenuItem>
-							<MenuItem value={2020}>2020</MenuItem>
-							<MenuItem value={2021}>2021</MenuItem>
-							<MenuItem value={2021}>2022</MenuItem>
-							<MenuItem value={2021}>2023</MenuItem>
-						</Select>
-					</FormControl>
-
-					<FormControl sx={{ m: 2, minWidth: 180 }}>
-						<InputLabel id='semester-label'>Semester</InputLabel>
-						<Select
-							labelId='semester-label'
-							id='semester'
-							value={semester}
-							label='Semester'
-							onChange={(e) => {
-								setSemester(e.target.value);
-								console.log(e.target.value);
-							}}
-						>
-							<MenuItem value={'Any'}>Any</MenuItem>
-							<MenuItem value={'Spring'}>Spring</MenuItem>
-							<MenuItem value={'Fall'}>Fall</MenuItem>
-						</Select>
-					</FormControl>
-
-					<FormControl sx={{ m: 2, minWidth: 180 }}>
-						<InputLabel id='courseNum-label'>Course Number</InputLabel>
-						<Select
-							labelId='courseNum-label'
-							id='courseNum'
-							value={courseNum}
-							label='Course Number'
-							onChange={(e) => {
-								setCourseNum(e.target.value);
-								console.log(e.target.value);
-							}}
-						>
-							<MenuItem value={'Any'}>Any</MenuItem>
-							<MenuItem value={'FORLANGC 111HM'}>FORLANGC 111HM</MenuItem>
-							<MenuItem value={'FORLANGC 111LL'}>FORLANGC 111LL</MenuItem>
-							<MenuItem value={'FORLANGC 111LM'}>FORLANGC 111LM</MenuItem>
-							<MenuItem value={'FORLANGC 111ND'}>FORLANGC 111ND</MenuItem>
-							<MenuItem value={'FORLANGC 111VN'}>FORLANGC 111VN</MenuItem>
-						</Select>
-					</FormControl>
-				</div>
-				<div className="queryButton">
-					<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>Query the Database</Button>
-				</div>
->>>>>>> main
 			</div>
 
 			<DataGrid
 				rows={tableData}
-<<<<<<< HEAD
 				getRowId={(row) => (counter += 1)}
-=======
-				getRowId={(row) => counter += 1}
->>>>>>> main
 				columns={columns}
 				initialState={{
 					pagination: {
@@ -361,12 +210,6 @@ export default function Instructors() {
 				pageSizeOptions={[10, 15]}
 				checkboxSelection
 			/>
-<<<<<<< HEAD
 		</div>
 	);
 }
-=======
-		</div >
-	);
-}
->>>>>>> main
