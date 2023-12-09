@@ -9,7 +9,8 @@ const columns = [
 	{ field: 'campus', headerName: 'campus', width: 130 },
 	{ field: 'day', headerName: 'day', width: 130 },
 	{ field: 'academic_year', headerName: 'academic_year', width: 200 },
-	{ field: 'semester', semester: 'semester', width: 200 }
+	{ field: 'semester', headerName: 'semester', width: 200 },
+	{ field: 'course_num', headName: 'course_num', width: 200 }
 ];
 
 
