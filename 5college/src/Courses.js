@@ -17,7 +17,6 @@ const columns = [
 	{ field: 'num_of_conversations', headerName: 'numConversations', width: 200 },
 	{ field: 'num_of_tutorials', headerName: 'numTutorials', width: 200 },
 	{ field: 'academic_year', headerName: 'academicYear', width: 200 },
-	{ field: 'course_name', headerName: 'courseName', width: 200 },
 ];
 
 export default function Courses() {
@@ -27,10 +26,28 @@ export default function Courses() {
 	const [semester, setSemester] = useState('');
 
 	const [tableData, setTableData] = useState([]);
-	useEffect(() => {
-		fetch('http://10.2.10.32:3001/courses')
+
+	const generate = () => {
+		var programToPass = program;
+		var langToPass = lang;
+		var yearToPass = academicYear;
+		var semToPass = semester;
+
+		if (programToPass.length <= 2 || programToPass == 'Any')
+			programToPass = undefined;
+		if (langToPass.length <= 2 || langToPass == 'Any') langToPass = undefined;
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined;
+		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined;
+
+		fetch(
+			`http://10.2.10.32:3001/courses?program=${programToPass}&lang=${langToPass}&academic_year=${yearToPass}&semester=${semToPass}`
+		)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
+	};
+
+	useEffect(() => {
+		generate();
 	}, []);
 
 	const resetFields = () => {
