@@ -62,7 +62,6 @@ export default function Instructors() {
 			<h1>Instructors</h1>
 			<div>
 				<div>
-					<button onClick={generate}>Test Query</button>
 					{/* Add dropdowns here */}
 					<FormControl sx={{ m: 2, minWidth: 180 }}>
 						<InputLabel id='role-label'>Role</InputLabel>
