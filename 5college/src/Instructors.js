@@ -5,7 +5,7 @@ import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import React, { useEffect, useState } from "react";
 
 const columns = [
-	{ field: 'email ', headerName: 'email', width: 200 },
+	{ field: 'email', headerName: 'email', width: 200 },
 	{ field: 'first_name', headerName: 'First name', width: 130 },
 	{ field: 'last_name', headerName: 'Last name', width: 130 },
 	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
@@ -24,27 +24,44 @@ const columns = [
 
 
 export default function Instructors() {
-    const [tableData, setTableData] = useState([]);
-    const [role, setRole] = useState('');
-    const [email, setEmail] = useState('');
-    const [year, setYear] = useState('');
-    const [semester, setSemester] = useState('');
-    const [courseNum, setCourseNum] = useState('');
+	const [tableData, setTableData] = useState([]);
+	const [role, setRole] = useState('');
+	const [email, setEmail] = useState('');
+	const [year, setYear] = useState('');
+	const [semester, setSemester] = useState('');
+	const [courseNum, setCourseNum] = useState('');
 
-    useEffect(() => {
-        // Update this URL to include query parameters based on the state
-        fetch(`http://10.2.10.32:3001/instructors?role=${role}&email=${email}&year=${year}&semester=${semester}&course_num=${courseNum}`)
-            .then((data) => data.json())
-            .then((data) => setTableData(data));
-    }, [role, email,year, semester, courseNum]); // Add dependencies here
+	const generate = () => {
 
-    var counter = 0;
+		var roleToPass = role
+		var emailToPass = email
+		var yearToPass = year
+		var semToPass = semester
+		var courseNumToPass = courseNum
 
-    return (
-        <div style={{ height: 600, width: '100%' }}>
-            <h1>Instructors</h1>
-            {/* Add dropdowns here */}
-            <FormControl sx={{ m: 2, minWidth: 180 }}>
+
+		if (roleToPass.length <= 2 || roleToPass == 'Any') roleToPass = undefined
+		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
+		if (courseNumToPass.length <= 2 || courseNumToPass === 'Any') courseNumToPass = undefined
+		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined
+
+		fetch(`http://10.2.10.32:3001/instructors?role=${roleToPass}&email=${emailToPass}&year=${yearToPass}&semester=${semToPass}&course_num=${courseNumToPass}`)
+			.then((data) => data.json())
+			.then((data) => setTableData(data));
+	};
+	useEffect(() => {
+		generate()
+	}, []); // Add dependencies here
+
+	var counter = 0;
+	console.log(tableData)
+	return (
+		<div style={{ height: 600, width: '100%' }}>
+			<h1>Instructors</h1>
+			<button onClick={generate}>Test Query</button>
+			{/* Add dropdowns here */}
+			<FormControl sx={{ m: 2, minWidth: 180 }}>
 				<InputLabel id='role-label'>Role</InputLabel>
 				<Select
 					labelId='role-label'
@@ -146,18 +163,18 @@ export default function Instructors() {
 				</Select>
 			</FormControl>
 
-            <DataGrid
-                rows={tableData}
-                getRowId={(row) => counter += 1}
-                columns={columns}
-                initialState={{
-                    pagination: {
-                        paginationModel: { page: 5, pageSize: 10 },
-                    },
-                }}
-                pageSizeOptions={[10, 15]}
-                checkboxSelection
-            />
-        </div>
-    );
+			<DataGrid
+				rows={tableData}
+				getRowId={(row) => counter += 1}
+				columns={columns}
+				initialState={{
+					pagination: {
+						paginationModel: { page: 5, pageSize: 10 },
+					},
+				}}
+				pageSizeOptions={[10, 15]}
+				checkboxSelection
+			/>
+		</div>
+	);
 }
