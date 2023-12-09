@@ -1,0 +1,14 @@
+.queryContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dropdownMenu {
+    margin-left: 3%
+}
+
+.queryButton {
+    margin-right: 15%;
+}

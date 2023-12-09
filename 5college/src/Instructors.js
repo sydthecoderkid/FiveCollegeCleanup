@@ -1,8 +1,9 @@
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { create } from '@mui/material/styles/createTransitions';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { FormControl, InputLabel, Button, Select, MenuItem } from '@mui/material';
 import React, { useEffect, useState } from "react";
+import './TablesPages.css';
 
 const columns = [
 	{ field: 'email', headerName: 'email', width: 200 },
@@ -162,19 +163,24 @@ export default function Instructors() {
 					<MenuItem value={'FORLANGC 111VN'}>FORLANGC 111VN</MenuItem>
 				</Select>
 			</FormControl>
-
-			<DataGrid
-				rows={tableData}
-				getRowId={(row) => counter += 1}
-				columns={columns}
-				initialState={{
-					pagination: {
-						paginationModel: { page: 5, pageSize: 10 },
-					},
-				}}
-				pageSizeOptions={[10, 15]}
-				checkboxSelection
-			/>
 		</div>
+				{/* <div className="queryButton">
+					<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>Query the Database</Button>
+				</div> */}
+			</div >
+
+		<DataGrid
+			rows={tableData}
+			getRowId={(row) => counter += 1}
+			columns={columns}
+			initialState={{
+				pagination: {
+					paginationModel: { page: 5, pageSize: 10 },
+				},
+			}}
+			pageSizeOptions={[10, 15]}
+			checkboxSelection
+		/>
+		</div >
 	);
 }
