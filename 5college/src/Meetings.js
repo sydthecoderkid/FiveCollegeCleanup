@@ -9,7 +9,9 @@ const columns = [
 	{ field: 'campus', headerName: 'campus', width: 130 },
 	{ field: 'day', headerName: 'day', width: 130 },
 	{ field: 'academic_year', headerName: 'academic_year', width: 200 },
-	{ field: 'semester', semester: 'semester', width: 200 }
+	{ field: 'semester', headerName: 'semester', width: 200 },
+	{ field: 'course_num', headerName: 'course_num', width: 200 }
+
 ];
 
 
@@ -35,7 +37,6 @@ export default function Meetings() {
 		if (campusToPass.length <= 2 || campusToPass == 'Any') campusToPass = undefined
 		if (dayToPass.length <= 2 || dayToPass === 'Any') dayToPass = undefined
 
-		console.log(yearToPass)
 		fetch(`http://10.2.10.32:3001/meetings?semester=${semToPass}&academic_year=${yearToPass}&campus=${campusToPass}&day=${dayToPass}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
@@ -83,7 +84,7 @@ export default function Meetings() {
 					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={2019}>2021</MenuItem>
 					<MenuItem value={2020}>2022</MenuItem>
-					<MenuItem value={2021}>2023</MenuItem>
+					<MenuItem value={2023}>2023</MenuItem>
 				</Select>
 			</FormControl>
 

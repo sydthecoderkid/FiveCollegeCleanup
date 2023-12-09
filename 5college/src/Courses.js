@@ -12,7 +12,6 @@ const columns = [
 	{ field: 'num_of_conversations', headerName: 'numConversations', width: 200 },
 	{ field: 'num_of_tutorials', headerName: 'numTutorials', width: 200 },
 	{ field: 'academic_year', headerName: 'academicYear', width: 200 },
-	{ field: 'course_name', headerName: 'courseName', width: 200 },
 ];
 
 export default function Courses() {
@@ -22,16 +21,36 @@ export default function Courses() {
 	const [semester, setSemester] = useState('');
 
 	const [tableData, setTableData] = useState([]);
-	useEffect(() => {
-		fetch('http://10.2.10.32:3001/courses')
+
+	const generate = () => {
+
+		var programToPass = program
+		var langToPass = lang
+		var yearToPass = academicYear
+		var semToPass = semester
+
+
+		if (programToPass.length <= 2 || programToPass == 'Any') programToPass = undefined
+		if (langToPass.length <= 2 || langToPass == 'Any') langToPass = undefined
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
+		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined
+
+		fetch(`http://10.2.10.32:3001/courses?program=${programToPass}&lang=${langToPass}&academic_year=${yearToPass}&semester=${semToPass}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
+	};
+
+	useEffect(() => {
+		generate()
 	}, []);
+
+
 	console.log(tableData);
 	var counter = 0;
 	return (
 		<div style={{ height: 600, width: '100%' }}>
 			<h1>Courses</h1>
+			<button onClick={generate}>Test Query</button>
 			<FormControl sx={{ m: 2, minWidth: 180 }}>
 				<InputLabel id='program-label'>Program</InputLabel>
 				<Select
@@ -44,6 +63,7 @@ export default function Courses() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'SILP'}>SILP</MenuItem>
 					<MenuItem value={'MLP'}>MLP</MenuItem>
 					<MenuItem value={'SLC'}>SLC</MenuItem>
@@ -62,6 +82,7 @@ export default function Courses() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={2022}>2022</MenuItem>
 					<MenuItem value={2023}>2023</MenuItem>
 				</Select>
@@ -79,6 +100,7 @@ export default function Courses() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'German'}>German</MenuItem>
 					<MenuItem value={'Spanish'}>Spanish</MenuItem>
 					<MenuItem value={'Chinese'}>Chinese</MenuItem>
@@ -99,6 +121,7 @@ export default function Courses() {
 						console.log(e.target.value);
 					}}
 				>
+					<MenuItem value={'Any'}>Any</MenuItem>
 					<MenuItem value={'Fall'}>Fall</MenuItem>
 					<MenuItem value={'Spring'}>Spring</MenuItem>
 				</Select>
