@@ -41,64 +41,80 @@ export default function Students() {
 	return (
 		<div style={{ height: 600, width: '100%' }}>
 			<h1>Students</h1>
-			<FormControl
-				sx={{ m: 2, minWidth: 180 }}
-				disabled={registrationStatus !== ''}
+			<div
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
 			>
-				<InputLabel id='enrollmentStatus-label'>Enrollment Status</InputLabel>
-				<Select
-					labelId='enrollmentStatus-label'
-					id='enrollmentStatus'
-					value={enrollmentStatus}
-					label='enrollmentStatus'
-					onChange={(e) => {
-						setEnrollmentStatus(e.target.value);
-						console.log(e.target.value);
-					}}
+				<FormControl
+					sx={{ m: 2, minWidth: 180 }}
+					disabled={registrationStatus !== ''}
 				>
-					<MenuItem value={'A'}>Admitted</MenuItem>
-					<MenuItem value={'NX - MLP'}>NX - MLP needs interview</MenuItem>
-					<MenuItem value={'NX - SILP'}>NX - SILP needs interview</MenuItem>
-					<MenuItem value={'W'}>Withdrawn application</MenuItem>
-				</Select>
-			</FormControl>
+					<InputLabel id='enrollmentStatus-label'>Enrollment Status</InputLabel>
+					<Select
+						labelId='enrollmentStatus-label'
+						id='enrollmentStatus'
+						value={enrollmentStatus}
+						label='enrollmentStatus'
+						onChange={(e) => {
+							setEnrollmentStatus(e.target.value);
+							console.log(e.target.value);
+						}}
+					>
+						<MenuItem value={'A'}>Admitted</MenuItem>
+						<MenuItem value={'NX - MLP'}>NX - MLP needs interview</MenuItem>
+						<MenuItem value={'NX - SILP'}>NX - SILP needs interview</MenuItem>
+						<MenuItem value={'W'}>Withdrawn application</MenuItem>
+					</Select>
+				</FormControl>
 
-			<FormControl
-				sx={{ m: 2, minWidth: 180 }}
-				disabled={enrollmentStatus !== ''}
+				<FormControl
+					sx={{ m: 2, minWidth: 180 }}
+					disabled={enrollmentStatus !== ''}
+				>
+					<InputLabel id='registrationStatus-label'>
+						Registration Status
+					</InputLabel>
+					<Select
+						labelId='registrationStatus-label'
+						id='registrationStatus'
+						value={registrationStatus}
+						label='registrationStatus'
+						onChange={(e) => {
+							setRegistrationstatus(e.target.value);
+							console.log(e.target.value);
+						}}
+					>
+						<MenuItem value='0'>Admission in progress</MenuItem>
+						<MenuItem value='1'>Needs to submit course contract</MenuItem>
+						<MenuItem value='2'>Submitted course contract</MenuItem>
+						<MenuItem value='3'>Pre-registered</MenuItem>
+						<MenuItem value='4'>
+							Fall/spring - Ready to submit permission
+						</MenuItem>
+						<MenuItem value='5'>Confirmed</MenuItem>
+						<MenuItem value='6'>Other/see notes</MenuItem>
+						<MenuItem value='D1'>Did not attend</MenuItem>
+						<MenuItem value='D2'>Attended add/drop</MenuItem>
+						<MenuItem value='D3'>Post-add-drop</MenuItem>
+						<MenuItem value='U'>Unable to accommodate</MenuItem>
+					</Select>
+				</FormControl>
+			</div>
+
+			<div
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
 			>
-				<InputLabel id='registrationStatus-label'>
-					Registration Status
-				</InputLabel>
-				<Select
-					labelId='registrationStatus-label'
-					id='registrationStatus'
-					value={registrationStatus}
-					label='registrationStatus'
-					onChange={(e) => {
-						setRegistrationstatus(e.target.value);
-						console.log(e.target.value);
-					}}
-				>
-					<MenuItem value='0'>Admission in progress</MenuItem>
-					<MenuItem value='1'>Needs to submit course contract</MenuItem>
-					<MenuItem value='2'>Submitted course contract</MenuItem>
-					<MenuItem value='3'>Pre-registered</MenuItem>
-					<MenuItem value='4'>
-						Fall/spring - Ready to submit permission
-					</MenuItem>
-					<MenuItem value='5'>Confirmed</MenuItem>
-					<MenuItem value='6'>Other/see notes</MenuItem>
-					<MenuItem value='D1'>Did not attend</MenuItem>
-					<MenuItem value='D2'>Attended add/drop</MenuItem>
-					<MenuItem value='D3'>Post-add-drop</MenuItem>
-					<MenuItem value='U'>Unable to accommodate</MenuItem>
-				</Select>
-			</FormControl>
-
-			<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
-				Reset Fields
-			</Button>
+				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
+					Reset Fields
+				</Button>
+			</div>
 
 			<DataGrid
 				rows={tableData}
