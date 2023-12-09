@@ -6,6 +6,7 @@ import {
 	MenuItem,
 	Select,
 	Button,
+	Input
 } from '@mui/material';
 import './TablesPages.css';
 
@@ -50,6 +51,21 @@ export default function Students() {
 					justifyContent: 'center',
 				}}
 			>
+				<FormControl sx={{ m: 2, minWidth: 180 }}>
+                    <InputLabel id='email-label'>Email</InputLabel>
+                    <Input 
+                    	labelId='email-label'
+                        id='email'
+                        value={email}
+                        label='Email'
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            console.log(e.target.value);
+                        }}
+                >
+                     </Input>
+                </FormControl>
+
 				<FormControl
 					sx={{ m: 2, minWidth: 180 }}
 					disabled={registrationStatus !== ''}
@@ -113,6 +129,9 @@ export default function Students() {
 					justifyContent: 'center',
 				}}
 			>
+				{/* <Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button> */}
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>

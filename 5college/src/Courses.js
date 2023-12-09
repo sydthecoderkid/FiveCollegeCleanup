@@ -149,6 +149,9 @@ export default function Courses() {
 					justifyContent: 'center',
 				}}
 			>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>

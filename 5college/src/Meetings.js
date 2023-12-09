@@ -148,7 +148,6 @@ export default function Meetings() {
 					</Select>
 				</FormControl>
 			</div>
-			{/* <button onClick={generate}>Test Query</button> */}
 
 			<div
 				style={{
@@ -157,6 +156,9 @@ export default function Meetings() {
 					justifyContent: 'center',
 				}}
 			>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>

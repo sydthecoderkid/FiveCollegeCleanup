@@ -5,6 +5,7 @@ import {
 	Select,
 	MenuItem,
 	Button,
+	Input
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
@@ -67,6 +68,21 @@ export default function Instructors() {
 				}}
 			>
 				<FormControl sx={{ m: 2, minWidth: 180 }}>
+                    <InputLabel id='email-label'>Email</InputLabel>
+                    <Input 
+                    	labelId='email-label'
+                        id='email'
+                        value={email}
+                        label='Email'
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            console.log(e.target.value);
+                        }}
+                >
+                     </Input>
+                </FormControl>
+				
+				<FormControl sx={{ m: 2, minWidth: 180 }}>
 					<InputLabel id='role-label'>Role</InputLabel>
 					<Select
 						labelId='role-label'
@@ -83,46 +99,6 @@ export default function Instructors() {
 							Conversation Partner
 						</MenuItem>
 						<MenuItem value={'Mentor'}>Mentor</MenuItem>
-					</Select>
-				</FormControl>
-
-				<FormControl sx={{ m: 2, minWidth: 180 }}>
-					<InputLabel id='email-label'>Email</InputLabel>
-					<Select
-						labelId='email-label'
-						id='email'
-						value={email}
-						label='Email'
-						onChange={(e) => {
-							setEmail(e.target.value);
-							console.log(e.target.value);
-						}}
-					>
-						<MenuItem value={'Any'}>Any</MenuItem>
-						<MenuItem value={'abanner@fivecolleges.edu'}>
-							abanner@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'kjones@fivecolleges.edu'}>
-							kjones@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'mlane@fivecolleges.edu'}>
-							mlane@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'abanner@fivecolleges.edu'}>
-							abanner@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'hj@fivecolleges.edu'}>
-							hj@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'akim@fivecolleges.edu'}>
-							akim@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'jmoreno@fivecolleges.edu'}>
-							jmoreno@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'mbrown@fivecolleges.edu'}>
-							mbrown@fivecolleges.edu
-						</MenuItem>
 					</Select>
 				</FormControl>
 
@@ -193,6 +169,9 @@ export default function Instructors() {
 					justifyContent: 'center',
 				}}
 			>
+				{/* <Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button> */}
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>
