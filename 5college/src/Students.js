@@ -106,6 +106,7 @@ export default function Students() {
 							console.log(e.target.value);
 						}}
 					>
+						<MenuItem value={'Any'}>Any</MenuItem>
 						<MenuItem value={'A'}>Admitted</MenuItem>
 						<MenuItem value={'NX - MLP'}>NX - MLP needs interview</MenuItem>
 						<MenuItem value={'NX - SILP'}>NX - SILP needs interview</MenuItem>
