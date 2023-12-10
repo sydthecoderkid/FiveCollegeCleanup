@@ -131,15 +131,15 @@ export default function Students() {
 							console.log(e.target.value);
 						}}
 					>
-						<MenuItem value='0'>Admission in progress</MenuItem>
-						<MenuItem value='1'>Needs to submit course contract</MenuItem>
-						<MenuItem value='2'>Submitted course contract</MenuItem>
-						<MenuItem value='3'>Pre-registered</MenuItem>
-						<MenuItem value='4'>
+						<MenuItem value={0}>Admission in progress</MenuItem>
+						<MenuItem value={1}>Needs to submit course contract</MenuItem>
+						<MenuItem value={2}>Submitted course contract</MenuItem>
+						<MenuItem value={3}>Pre-registered</MenuItem>
+						<MenuItem value={4}>
 							Fall/spring - Ready to submit permission
 						</MenuItem>
-						<MenuItem value='5'>Confirmed</MenuItem>
-						<MenuItem value='6'>Other/see notes</MenuItem>
+						<MenuItem value={5}>Confirmed</MenuItem>
+						<MenuItem value={6}>Other/see notes</MenuItem>
 						<MenuItem value='D1'>Did not attend</MenuItem>
 						<MenuItem value='D2'>Attended add/drop</MenuItem>
 						<MenuItem value='D3'>Post-add-drop</MenuItem>
