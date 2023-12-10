@@ -9,8 +9,8 @@ import {
 } from '@mui/material';
 
 const columns = [
-	{ field: 'schedule_num', headerName: 'Schedule Num', width: 200 },
-	{ field: 'course_num', headerName: 'Course Num', width: 130 },
+	{ field: 'schedule_num', headerName: 'Schedule Num', width: 130 },
+	{ field: 'course_num', headerName: 'Course Num', width: 150 },
 	{ field: 'semester', headerName: 'Semester', width: 130 },
 	{ field: 'lang', headerName: 'Language', width: 130 },
 	{ field: 'program', headerName: 'Program', width: 130 },
