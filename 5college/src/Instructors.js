@@ -25,7 +25,7 @@ const columns = [
 	{ field: 'paperwork_status', headerName: 'Paperwork Status', width: 130 },
 	{ field: 'notes', headerName: 'Notes', width: 130 },
 	{ field: 'hiring_history', headerName: 'Hiring Hist', width: 130 },
-	{ field: 'course_num', headerName: 'Course Num', width: 130 },
+	{ field: 'course_num', headerName: 'Course Num', width: 150 },
 	{ field: 'semester', headerName: 'Semester', width: 130 },
 	{ field: 'academic_year', headerName: 'Academic Year', width: 130 },
 ];
