@@ -11,17 +11,17 @@ import {
 import './TablesPages.css';
 
 const columns = [
-	{ field: 'email', headerName: 'email', width: 200 },
-	{ field: 'first_name', headerName: 'First name', width: 130 },
-	{ field: 'last_name', headerName: 'Last name', width: 130 },
-	{ field: 'academic_career', headerName: 'academicCareer', width: 130 },
-	{ field: 'campus', headerName: 'campus', width: 130 },
-	{ field: 'graduation_year', headerName: 'graduationYear', width: 130 },
-	{ field: 'phone', headerName: 'phone', width: 100 },
-	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
-	{ field: 'pronouns', headerName: 'pronouns', width: 100 },
-	{ field: 'register_status', headerName: 'register_status', width: 100 },
-	{ field: 'enroll_status', headerName: 'enroll_status', width: 100 },
+	{ field: 'email', headerName: 'Email', width: 200 },
+	{ field: 'first_name', headerName: 'First Name', width: 130 },
+	{ field: 'last_name', headerName: 'Last Name', width: 130 },
+	{ field: 'academic_career', headerName: 'Academic Career', width: 130 },
+	{ field: 'campus', headerName: 'Campus', width: 130 },
+	{ field: 'graduation_year', headerName: 'Graduation Year', width: 130 },
+	{ field: 'phone', headerName: 'Phone', width: 100 },
+	{ field: 'preferred_name', headerName: 'Preferred Name', width: 130 },
+	{ field: 'pronouns', headerName: 'Pronouns', width: 100 },
+	{ field: 'register_status', headerName: 'Registration Status', width: 150 },
+	{ field: 'enroll_status', headerName: 'Enrollment Status', width: 150 },
 
 ];
 
