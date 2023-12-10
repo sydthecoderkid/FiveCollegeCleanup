@@ -68,7 +68,7 @@ export default function Students() {
 	return (
 		<div style={{ height: 600, width: '100%' }}>
 			<h1>Students</h1>
-			<button onClick={generate}>Test query</button>
+			
 			<div
 				style={{
 					display: 'flex',
@@ -155,9 +155,9 @@ export default function Students() {
 					justifyContent: 'center',
 				}}
 			>
-				{/* <Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
 					Query the Database
-				</Button> */}
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>
