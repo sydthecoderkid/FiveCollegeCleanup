@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(199, 161, 202);
+}
+
 .navbar {
   background-color: rgb(55, 4, 72);
   height: 50px;
@@ -6,8 +10,9 @@
  }
  .navbar-brand, .nav-link {
   margin: 5%;
-  color: #f8f7f7 !important;
+  color: #f8f9fa !important;
   font-size: 20px ;
+  padding: 10px ;
   }
  .nav-link:hover{
   color: #f8f9fa !important;
@@ -15,9 +20,8 @@
  .navbar-brand:hover{
   color: #f8f9fa !important;
  }
- .landing-header {
-  text-align: center;
-  margin: 20px 0;
+ .landing-page {
+  size:initial
  }
  .search-section, .results-section {
   margin: 20px;
@@ -25,7 +29,6 @@
  .search-form {
   display: flex;
   justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
  }
  .search-dropdown {
@@ -55,7 +58,7 @@
   margin-top: 20px;
  }
  .students-button {
-  background-color: #28a745;
+  background-color: #bdc4be;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -63,20 +66,39 @@
   cursor: pointer;
  }
  .students-button:hover {
-  background-color: #218838;
+  color: #218838;
  }
  .centered-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  justify-content: center;
+  align-items:center ;
+  width: 100%;
+ }
+ .centered-image3{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items:center ;
+  width: 90%;
+ }
+
+ .centered-image2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120%;
+  height: 225px; 
+
  }
  .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
  }
+
  .text-container {
   /* text-align: center;  */
   color: rgb(63, 36, 63);
@@ -85,13 +107,13 @@
  }
  .description{
   margin-top: 30px; 
-  font-size: 40 ;
+  font-size: 18px ;
   max-width: 90%;
   margin: 0 auto;
-  color: rgb(63, 36, 63);
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: bold ;
+  color: rgb(55, 4, 72);
  }
  
  
@@ -99,3 +121,15 @@
   color: rgb(63, 36, 63);
  }
  
+
+ .college-pics{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center ;
+  max-width: 250px;
+  position:relative;
+  margin-bottom: 50px !important ;
+  margin-left: auto;
+  margin-right: auto;
+ }
