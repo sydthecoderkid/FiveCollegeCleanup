@@ -20,6 +20,9 @@ const columns = [
 	{ field: 'phone', headerName: 'phone', width: 100 },
 	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
 	{ field: 'pronouns', headerName: 'pronouns', width: 100 },
+	{ field: 'register_status', headerName: 'register_status', width: 100 },
+	{ field: 'enroll_status', headerName: 'enroll_status', width: 100 },
+
 ];
 
 export default function Students() {
@@ -40,7 +43,11 @@ export default function Students() {
 
 		if (regStatus.length <= 2 || regStatus == 'Any') regStatus = undefined
 		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
-		if (enrollStatus.length <= 2 || enrollStatus == 'Any') enrollStatus = undefined
+
+		if (enrollStatus !== "A") {
+			if (enrollStatus.length <= 2 || enrollStatus == 'Any') enrollStatus = undefined
+		}
+
 
 		fetch(`http://10.2.10.32:3001/students?email=${emailToPass}&enrollStatus=${enrollStatus}&regStatus=${regStatus}`)
 			.then((data) => data.json())
@@ -99,6 +106,7 @@ export default function Students() {
 							console.log(e.target.value);
 						}}
 					>
+						<MenuItem value={'Any'}>Any</MenuItem>
 						<MenuItem value={'A'}>Admitted</MenuItem>
 						<MenuItem value={'NX - MLP'}>NX - MLP needs interview</MenuItem>
 						<MenuItem value={'NX - SILP'}>NX - SILP needs interview</MenuItem>
