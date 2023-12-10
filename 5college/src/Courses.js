@@ -9,14 +9,14 @@ import {
 } from '@mui/material';
 
 const columns = [
-	{ field: 'schedule_num', headerName: 'schedule_num', width: 200 },
-	{ field: 'course_num', headerName: 'course_num', width: 130 },
-	{ field: 'semester', headerName: 'semester', width: 130 },
-	{ field: 'lang', headerName: 'lang', width: 130 },
-	{ field: 'program', headerName: 'program', width: 130 },
-	{ field: 'num_of_conversations', headerName: 'numConversations', width: 200 },
-	{ field: 'num_of_tutorials', headerName: 'numTutorials', width: 200 },
-	{ field: 'academic_year', headerName: 'academicYear', width: 200 },
+	{ field: 'schedule_num', headerName: 'Schedule Num', width: 200 },
+	{ field: 'course_num', headerName: 'Course Num', width: 130 },
+	{ field: 'semester', headerName: 'Semester', width: 130 },
+	{ field: 'lang', headerName: 'Language', width: 130 },
+	{ field: 'program', headerName: 'Program', width: 130 },
+	{ field: 'num_of_conversations', headerName: '# Of Conversations', width: 200 },
+	{ field: 'num_of_tutorials', headerName: '# Of Tutorials', width: 200 },
+	{ field: 'academic_year', headerName: 'Academic Year', width: 200 },
 ];
 
 export default function Courses() {
