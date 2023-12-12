@@ -5,28 +5,29 @@ import {
 	Select,
 	MenuItem,
 	Button,
+	Input
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
 const columns = [
-	{ field: 'email', headerName: 'email', width: 200 },
-	{ field: 'first_name', headerName: 'First name', width: 130 },
-	{ field: 'last_name', headerName: 'Last name', width: 130 },
-	{ field: 'preferred_name', headerName: 'preferredName', width: 130 },
-	{ field: 'pronouns', headerName: 'pronouns', width: 100 },
-	{ field: 'role', headerName: 'role', width: 100 },
-	{ field: 'academic_career', headerName: 'academicCareer', width: 130 },
-	{ field: 'languages_taught', headerName: 'languages', width: 130 },
-	{ field: 'campus', headerName: 'campus', width: 130 },
-	{ field: 'phone', headerName: 'phone', width: 100 },
-	{ field: 'graduation_year', headerName: 'graduationYear', width: 130 },
-	{ field: 'approved_to_hire', headerName: 'approvedToHire', width: 130 },
-	{ field: 'paperwork_status', headerName: 'paperworkStatus', width: 130 },
-	{ field: 'notes', headerName: 'notes', width: 130 },
-	{ field: 'hiring_history', headerName: 'hiringHist', width: 130 },
-	{ field: 'course_num', headerName: 'course_num', width: 130 },
-	{ field: 'semester', headerName: 'semester', width: 130 },
-	{ field: 'academic_year', headerName: 'academic_year', width: 130 },
+	{ field: 'email', headerName: 'Email', width: 200 },
+	{ field: 'first_name', headerName: 'First Name', width: 130 },
+	{ field: 'last_name', headerName: 'Last Name', width: 130 },
+	{ field: 'preferred_name', headerName: 'Preferred Name', width: 130 },
+	{ field: 'pronouns', headerName: 'Pronouns', width: 100 },
+	{ field: 'role', headerName: 'Role', width: 100 },
+	{ field: 'academic_career', headerName: 'Academic Career', width: 130 },
+	{ field: 'languages_taught', headerName: 'Languages', width: 130 },
+	{ field: 'campus', headerName: 'Campus', width: 130 },
+	{ field: 'phone', headerName: 'Phone', width: 130 },
+	{ field: 'graduation_year', headerName: 'Grad. Year', width: 130 },
+	{ field: 'approved_to_hire', headerName: 'Approved To Hire', width: 130 },
+	{ field: 'paperwork_status', headerName: 'Paperwork Status', width: 130 },
+	{ field: 'notes', headerName: 'Notes', width: 130 },
+	{ field: 'hiring_history', headerName: 'Hiring Hist', width: 130 },
+	{ field: 'course_num', headerName: 'Course Num', width: 150 },
+	{ field: 'semester', headerName: 'Semester', width: 130 },
+	{ field: 'academic_year', headerName: 'Academic Year', width: 130 },
 ];
 
 export default function Instructors() {
@@ -37,14 +38,31 @@ export default function Instructors() {
 	const [semester, setSemester] = useState('');
 	const [courseNum, setCourseNum] = useState('');
 
-	useEffect(() => {
-		// Update this URL to include query parameters based on the state
-		fetch(
-			`http://10.2.10.32:3001/instructors?role=${role}&email=${email}&year=${year}&semester=${semester}&course_num=${courseNum}`
-		)
+	const generate = () => {
+
+		var roleToPass = role
+		var emailToPass = email
+		var yearToPass = year
+		var semToPass = semester
+		var courseNumToPass = courseNum
+
+
+		if (roleToPass.length <= 2 || roleToPass == 'Any') roleToPass = undefined
+		if (emailToPass.length <= 2 || emailToPass == 'Any') emailToPass = undefined
+		if (yearToPass.length <= 2 || yearToPass == 'Any') yearToPass = undefined
+		if (courseNumToPass.length <= 2 || courseNumToPass === 'Any') courseNumToPass = undefined
+		if (semToPass.length <= 2 || semToPass === 'Any') semToPass = undefined
+
+		fetch(`http://10.2.10.32:3001/instructors?role=${roleToPass}&email=${emailToPass}&year=${yearToPass}&semester=${semToPass}&course_num=${courseNumToPass}`)
 			.then((data) => data.json())
 			.then((data) => setTableData(data));
-	}, [role, email, year, semester, courseNum]); // Add dependencies here
+	};
+	useEffect(() => {
+		generate()
+	}, []); // Add dependencies here
+
+	var counter = 0;
+	console.log(tableData)
 
 	const resetFields = () => {
 		setRole('');
@@ -67,6 +85,21 @@ export default function Instructors() {
 				}}
 			>
 				<FormControl sx={{ m: 2, minWidth: 180 }}>
+                    <InputLabel id='email-label'>Email</InputLabel>
+                    <Input 
+                    	labelId='email-label'
+                        id='email'
+                        value={email}
+                        label='Email'
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            console.log(e.target.value);
+                        }}
+                >
+                     </Input>
+                </FormControl>
+
+				<FormControl sx={{ m: 2, minWidth: 180 }}>
 					<InputLabel id='role-label'>Role</InputLabel>
 					<Select
 						labelId='role-label'
@@ -83,46 +116,6 @@ export default function Instructors() {
 							Conversation Partner
 						</MenuItem>
 						<MenuItem value={'Mentor'}>Mentor</MenuItem>
-					</Select>
-				</FormControl>
-
-				<FormControl sx={{ m: 2, minWidth: 180 }}>
-					<InputLabel id='email-label'>Email</InputLabel>
-					<Select
-						labelId='email-label'
-						id='email'
-						value={email}
-						label='Email'
-						onChange={(e) => {
-							setEmail(e.target.value);
-							console.log(e.target.value);
-						}}
-					>
-						<MenuItem value={'Any'}>Any</MenuItem>
-						<MenuItem value={'abanner@fivecolleges.edu'}>
-							abanner@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'kjones@fivecolleges.edu'}>
-							kjones@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'mlane@fivecolleges.edu'}>
-							mlane@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'abanner@fivecolleges.edu'}>
-							abanner@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'hj@fivecolleges.edu'}>
-							hj@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'akim@fivecolleges.edu'}>
-							akim@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'jmoreno@fivecolleges.edu'}>
-							jmoreno@fivecolleges.edu
-						</MenuItem>
-						<MenuItem value={'mbrown@fivecolleges.edu'}>
-							mbrown@fivecolleges.edu
-						</MenuItem>
 					</Select>
 				</FormControl>
 
@@ -193,6 +186,9 @@ export default function Instructors() {
 					justifyContent: 'center',
 				}}
 			>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>

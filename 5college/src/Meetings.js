@@ -9,13 +9,13 @@ import {
 } from '@mui/material';
 
 const columns = [
-	{ field: 's_time', headerName: 'start', width: 200 },
-	{ field: 'e_time', headerName: 'end', width: 130 },
-	{ field: 'location', headerName: 'location', width: 130 },
-	{ field: 'campus', headerName: 'campus', width: 130 },
-	{ field: 'day', headerName: 'day', width: 130 },
-	{ field: 'academic_year', headerName: 'academic_year', width: 200 },
-	{ field: 'semester', semester: 'semester', width: 200 },
+	{ field: 's_time', headerName: 'Start Time', width: 200 },
+	{ field: 'e_time', headerName: 'End Time', width: 130 },
+	{ field: 'location', headerName: 'Location', width: 130 },
+	{ field: 'campus', headerName: 'Campus', width: 130 },
+	{ field: 'day', headerName: 'Day', width: 130 },
+	{ field: 'academic_year', headerName: 'Academic Year', width: 200 },
+	{ field: 'semester', headerName: 'Semester', width: 200 },
 ];
 
 export default function Meetings() {
@@ -148,7 +148,6 @@ export default function Meetings() {
 					</Select>
 				</FormControl>
 			</div>
-			{/* <button onClick={generate}>Test Query</button> */}
 
 			<div
 				style={{
@@ -157,6 +156,9 @@ export default function Meetings() {
 					justifyContent: 'center',
 				}}
 			>
+				<Button variant="contained" color="secondary" onClick={generate} sx={{ m: 3.2, minWidth: 150 }}>
+					Query the Database
+				</Button>
 				<Button variant='contained' onClick={resetFields} sx={{ m: 2 }}>
 					Reset Fields
 				</Button>
